@@ -7,6 +7,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#include <termios.h> // for terminal control
+#include <unistd.h> // get keyboard keys
+
 #include "../lib/e-Paper/EPD_IT8951.h"
 #include "../lib/GUI/GUI_Paint.h"
 #include "../lib/GUI/GUI_BMPfile.h"
@@ -147,8 +150,9 @@ UBYTE Display_CharacterPattern_Example(UWORD Panel_Width, UWORD Panel_Height, UD
     //}
 
 // For color definition of all BitsPerPixel, you can refer to GUI_Paint.h
-Paint_DrawRectangle(20, 20, Display_Area_Width-20, Display_Area_Height-20, 0x00, DOT_PIXEL_3X3, DRAW_FILL_EMPTY);
-Paint_DrawString_EN(30, 30, "hello world", &Font24, 0x30, 0xD0);
+    Paint_DrawRectangle(20, 20, Display_Area_Width-20, Display_Area_Height-20, 0x00, DOT_PIXEL_3X3, DRAW_FILL_EMPTY);
+    Paint_DrawString_EN(30, 30, "hello world", &Font24, 0x30, 0xD0);
+
 
 
     switch(BitsPerPixel){
@@ -298,6 +302,7 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 
         Dynamic_Area_Start = clock();
         Debug("Start to dynamic display...\r\n");
+
 
         for(Dynamic_Area_Width = 96, Dynamic_Area_Height = 64; (Dynamic_Area_Width < Panel_Width - 32) && (Dynamic_Area_Height < Panel_Height - 24); Dynamic_Area_Width += 32, Dynamic_Area_Height += 24)
         {
