@@ -131,20 +131,24 @@ UBYTE Display_CharacterPattern_Example(UWORD Panel_Width, UWORD Panel_Height, UD
     Paint_Clear(WHITE);
     
 
-    for(int y=20; y<Display_Area_Height - Display_Area_Sub_Height; y += Display_Area_Sub_Height )//To prevent arrays from going out of bounds
-    {
-        for(int  x=20; x<Display_Area_Width - Display_Area_Sub_Width; x += Display_Area_Sub_Width )//To prevent arrays from going out of bounds
-        {
+    //for(int y=20; y<Display_Area_Height - Display_Area_Sub_Height; y += Display_Area_Sub_Height )//To prevent arrays from going out of bounds
+   // {
+   //     for(int  x=20; x<Display_Area_Width - Display_Area_Sub_Width; x += Display_Area_Sub_Width )//To prevent arrays from going out of bounds
+   //     {
             //For color definition of all BitsPerPixel, you can refer to GUI_Paint.h
-            Paint_DrawPoint(x+Display_Area_Sub_Width*3/8, y+Display_Area_Sub_Height*3/8, 0x10, DOT_PIXEL_7X7, DOT_STYLE_DFT);
-            Paint_DrawPoint(x+Display_Area_Sub_Width*5/8, y+Display_Area_Sub_Height*3/8, 0x30, DOT_PIXEL_7X7, DOT_STYLE_DFT);
-            Paint_DrawLine(x+Display_Area_Sub_Width*3/8, y+Display_Area_Sub_Height*5/8, x+Display_Area_Sub_Width*5/8, y+Display_Area_Sub_Height*5/8, 0x50, DOT_PIXEL_3X3, LINE_STYLE_SOLID);
-            Paint_DrawRectangle(x, y, x+Display_Area_Sub_Width, y+Display_Area_Sub_Height, 0x00, DOT_PIXEL_3X3, DRAW_FILL_EMPTY);
-            Paint_DrawCircle(x + Display_Area_Sub_Width/2, y + Display_Area_Sub_Height/2, Display_Area_Sub_Height/2, 0x50, DOT_PIXEL_2X2, DRAW_FILL_EMPTY);
-            Paint_DrawNum(x+Display_Area_Sub_Width*3/10, y+Display_Area_Sub_Height*1/4, 1234567890, &Font16, 0x20, 0xE0);
-            Paint_DrawString_EN(x+Display_Area_Sub_Width*3/10, y+Display_Area_Sub_Height*3/4, "hello world", &Font16, 0x30, 0xD0);
-        }
-    }
+            //Paint_DrawPoint(x+Display_Area_Sub_Width*3/8, y+Display_Area_Sub_Height*3/8, 0x10, DOT_PIXEL_7X7, DOT_STYLE_DFT);
+            //Paint_DrawPoint(x+Display_Area_Sub_Width*5/8, y+Display_Area_Sub_Height*3/8, 0x30, DOT_PIXEL_7X7, DOT_STYLE_DFT);
+            //Paint_DrawLine(x+Display_Area_Sub_Width*3/8, y+Display_Area_Sub_Height*5/8, x+Display_Area_Sub_Width*5/8, y+Display_Area_Sub_Height*5/8, 0x50, DOT_PIXEL_3X3, LINE_STYLE_SOLID);
+            //Paint_DrawRectangle(x, y, x+Display_Area_Sub_Width, y+Display_Area_Sub_Height, 0x00, DOT_PIXEL_3X3, DRAW_FILL_EMPTY);
+            //Paint_DrawCircle(x + Display_Area_Sub_Width/2, y + Display_Area_Sub_Height/2, Display_Area_Sub_Height/2, 0x50, DOT_PIXEL_2X2, DRAW_FILL_EMPTY);
+            //Paint_DrawNum(x+Display_Area_Sub_Width*3/10, y+Display_Area_Sub_Height*1/4, 1234567890, &Font16, 0x20, 0xE0);
+            //Paint_DrawString_EN(x+Display_Area_Sub_Width*3/10, y+Display_Area_Sub_Height*3/4, "hello world", &Font16, 0x30, 0xD0);
+        //}
+    //}
+
+// For color definition of all BitsPerPixel, you can refer to GUI_Paint.h
+Paint_DrawRectangle(20, 20, Display_Area_Width-20, Display_Area_Height-20, 0x00, DOT_PIXEL_3X3, DRAW_FILL_EMPTY);
+Paint_DrawString_EN(30, 30, "hello world", &Font24, 0x30, 0xD0);
 
 
     switch(BitsPerPixel){
